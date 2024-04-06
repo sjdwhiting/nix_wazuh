@@ -71,7 +71,7 @@ stdenv.mkDerivation rec {
         cd $out
         pwd
         echo "Running make deps"
-        make -f ./src deps        
+        make -f ./src/makefile deps        
         echo "Running make -C src TARGET=agent"
         echo "Current directory:"
         echo "Out directory:"
