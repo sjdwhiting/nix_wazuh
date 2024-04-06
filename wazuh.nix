@@ -70,7 +70,6 @@ stdenv.mkDerivation rec {
         echo $out
         cd $out
         pwd
-        cd src
         echo "Running make deps"
         make deps
         
