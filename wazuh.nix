@@ -72,6 +72,8 @@ stdenv.mkDerivation rec {
         pwd
         echo "Running make deps"
         cd src
+        echo "Creating external directory first..."
+        mkdir external
 
         make deps
 
