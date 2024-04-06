@@ -40,6 +40,23 @@ stdenv.mkDerivation rec {
         perl
     ];
 
+        configurePhase = ''
+        cat <<EOF >> ./etc/preloaded-vars.conf
+            USER_LANGUAGE="en"
+            USER_NO_STOP="y"
+            USER_INSTALL_TYPE="agent"
+            USER_DIR="/var/ossec"
+            USER_DELETE_DIR="n"
+            USER_ENABLE_ACTIVE_RESPONSE="y"
+            USER_ENABLE_SYSCHECK="y"
+            USER_ENABLE_ROOTCHECK="y"
+            USER_ENABLE_OPENSCAP="y"
+            USER_ENABLE_SYSCOLLECTOR="y"
+            USER_ENABLE_SECURITY_CONFIGURATION_ASSESSMENT="y"
+            USER_AGENT_SERVER_IP=127.0.0.1
+            USER_CA_STORE="no"
+        EOF
+    '';
     
 
     buildPhase = ''
@@ -70,23 +87,7 @@ stdenv.mkDerivation rec {
         makeWrapper $out/bin/wazuh-agent $out/bin/wazuh-agent --set WAZUH_MANAGER=
     '';
 
-    configurePhase = ''
-        cat <<EOF >> ./etc/preloaded-vars.conf
-            USER_LANGUAGE="en"
-            USER_NO_STOP="y"
-            USER_INSTALL_TYPE="agent"
-            USER_DIR="/var/ossec"
-            USER_DELETE_DIR="n"
-            USER_ENABLE_ACTIVE_RESPONSE="y"
-            USER_ENABLE_SYSCHECK="y"
-            USER_ENABLE_ROOTCHECK="y"
-            USER_ENABLE_OPENSCAP="y"
-            USER_ENABLE_SYSCOLLECTOR="y"
-            USER_ENABLE_SECURITY_CONFIGURATION_ASSESSMENT="y"
-            USER_AGENT_SERVER_IP=127.0.0.1
-            USER_CA_STORE="no"
-        EOF
-    '';
+
 
     postInstall = ''
         bash install.sh
