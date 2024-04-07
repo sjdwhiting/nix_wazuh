@@ -30,7 +30,6 @@ stdenv.mkDerivation rec {
         python312
         gcc
         gnumake
-        gunzip
         libcxx
         curl
         automake
