@@ -71,8 +71,11 @@ stdenv.mkDerivation rec {
         cd $out
         pwd
         echo "Running make deps"
+        ls
         cd src
         mkdir -p external
+        ls
+        pwd
         make deps
 
 
