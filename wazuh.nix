@@ -38,6 +38,30 @@ stdenv.mkDerivation rec {
         openssl
         cmake
         perl
+        cJSON
+        libdb
+        libffi
+        libyaml
+        openssl
+        procps
+        sqlite
+        zlib
+        audit-userspace
+        msgpack  
+        bzip2
+        nlohmann  
+        googletest
+        libpcre2
+        libplist
+        pacman
+        libarchive
+        popt
+        lua   
+        rpm
+        rocksdb
+        lzma
+        cpp-httplib
+        benchmark
     ];
 
         configurePhase = ''
