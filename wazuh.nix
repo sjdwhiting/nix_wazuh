@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
         openssl
         cmake
         perl
-        cJSON
+        
         libdb
         libffi
         libyaml
